@@ -1,0 +1,489 @@
+/* ===== Page Layout ===== */
+.transactions-page {
+
+
+  display: flex;
+  flex-direction: column;
+ /* align-items: flex-start;*/
+  width: 100%;
+  gap: 18px;
+}
+
+
+/* ===== Title ===== */
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+
+/* ===== Action Buttons ===== */
+.actions {
+  display: flex;
+  gap: 14px;
+}
+
+.actions button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.25s ease;
+
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+}
+
+.actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+
+
+/* ============================= */
+/* ===== TABLE CARD STYLE ===== */
+/* ============================= */
+
+.table {
+  width: 100%;
+  background: white;
+
+  padding: 26px;
+  border-radius: 18px;
+
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+
+/* ===== Table ===== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  padding-bottom: 14px;
+}
+
+td {
+  padding: 14px 0;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+
+/* ===== Row hover effect ===== */
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+
+/* ===== Type colors ===== */
+.income {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.expense {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+
+/* ===== Icons ===== */
+.actions-cell svg {
+  cursor: pointer;
+  margin-right: 12px;
+  color: #64748b;
+  transition: 0.2s;
+}
+
+.actions-cell svg:hover {
+  color: #2563eb;
+  transform: scale(1.15);
+}
+
+
+
+/* ============================= */
+/* ===== MODAL STYLING ===== */
+/* ============================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  width: 360px;
+
+  padding: 26px;
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  box-shadow: 0 24px 50px rgba(0,0,0,0.18);
+
+  animation: pop 0.18s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+/* ===== Inputs ===== */
+.modal input,
+.modal select {
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #c7d2fe;
+
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.modal input:focus,
+.modal select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+
+/* ===== Modal buttons ===== */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.modal-actions button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-actions button:first-child {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.modal-actions button:last-child {
+  background: #2563eb;
+  color: white;
+}
+
+.modal-actions button:hover {
+  transform: translateY(-1px);
+}
+/* ===== Reserved Checkbox ===== */
+.reserved-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #475569;
+  cursor: pointer;
+}
+/*change password style*/
+/* Full page background */
+.change-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Card */
+.change-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.change-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Header */
+.change-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.icon-circle {
+  background: #e0e7ff;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4f46e5;
+  font-size: 22px;
+}
+
+.change-header h2 {
+  margin: 5px 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.change-header p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Form */
+.change-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs */
+.change-form input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.change-form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px #c7d2fe;
+}
+
+/* Button */
+.change-form button {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.change-form button:hover {
+  background: #4338ca;
+  transform: scale(1.02);
+}
+
+/* Message */
+.message {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #dc2626;
+}
+/*settings css*/
+/* Page container (fits dashboard layout) */
+.settings-page {
+  padding: 40px;
+  max-width: 700px;
+}
+
+/* Title */
+.settings-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Profile row */
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+/* Icon */
+.profile-icon {
+  width: 80px;
+  height: 80px;
+  background: #e0e7ff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4f46e5;
+}
+
+/* Info */
+.profile-info h2 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.profile-info p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Divider */
+.settings-page hr {
+  margin: 25px 0;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Button */
+.change-btn {
+  background: #4f46e5;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.change-btn:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+}
+
+
+/* Analytics page css*/
+.analytics-page {
+  padding: 30px 40px;
+}
+
+/* Header */
+.analytics-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.analytics-header p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* Grid */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 25px;
+}
+
+/* Chart cards */
+.chart-card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.chart-card h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+/*recent css*/
+.recent-box {
+  width: 100%;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-top: 30px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* header */
+.recent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.recent-header h3 {
+  margin: 0;
+}
+
+.recent-header a {
+  text-decoration: none;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+/* table */
+.recent-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-table th {
+  text-align: left;
+  font-size: 14px;
+  color: gray;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.recent-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+/* colors */
+.income {
+  color: green;
+  font-weight: 600;
+}
+
+.expense {
+  color: red;
+  font-weight: 600;
+}
+
+.recent-table tbody tr:hover {
+  background: #f9fafc;
+}

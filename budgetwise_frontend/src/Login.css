@@ -1,0 +1,123 @@
+/* Page background */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+.login-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 40px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Title */
+.login-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+/* Subtitle */
+.login-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 25px;
+}
+
+/* Form layout */
+.login-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card label {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  margin-top: 14px;
+  color: #374151;
+}
+
+.login-card input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #c7d2fe;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Button */
+.login-card button {
+  margin-top: 24px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-card button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* Signup text */
+.signup-text {
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: center;
+  color: #475569;
+}
+
+.signup-text a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Success message */
+.success-msg {
+  margin-top: 14px;
+  color: #16a34a;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+.forgot-link {
+  display: block;        /* ← THIS FIXES IT */
+  width: 100%;
+  margin-top: 10px;
+  text-align: right;
+  color: #2563eb;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}

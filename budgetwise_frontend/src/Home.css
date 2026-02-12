@@ -1,0 +1,146 @@
+/* Page */
+.home-page {
+  min-height: 100vh;
+  background: linear-gradient(to right, #eef2ff, #e0e7ff);
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.home-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.login-btn {
+  background: #4068bf;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-btn:hover {
+  background: #2f54b8;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  gap: 40px;
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  color: #475569;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.hero-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.primary-btn {
+  background: #4068bf;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.primary-btn:hover {
+  background: #2f54b8;
+}
+
+.secondary-btn {
+  border: 2px solid #4068bf;
+  color: #4068bf;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.secondary-btn:hover {
+  background: #4068bf;
+  color: white;
+}
+
+/* Hero Image */
+.hero-image img {
+  width: 420px;
+  max-width: 100%;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
+}
+
+/* Features */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 60px 80px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,.1);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,.15);
+}
+
+.feature-card h4 {
+  margin: 12px 0 8px;
+  color: #1f2937;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #475569;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .features-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+}
