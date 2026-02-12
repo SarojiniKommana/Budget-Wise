@@ -110,7 +110,27 @@ mvn spring-boot:run
 ---
 
 ## 📷 Screenshots
-(Add your UI screenshots here)
+## 📸 Screenshots
+
+### 🏠 Landing Page
+![Landing](screenshots/Home-Page.png)
+
+### 🔐 Login Page
+![Login](screenshots/login.png)
+
+### 📊 Dashboard
+![Dashboard](screenshots/Dashboard.png)
+
+### 💰 Transactions
+![Transactions](screenshots/Transactions.png)
+
+### 📈 Analytics
+![Analytics](screenshots/Analytics.png)
+
+### ⚙️ Settings Page
+![Settings](screenshots/Settings.png)
+
 
 ---
+
 
