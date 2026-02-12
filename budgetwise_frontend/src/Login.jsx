@@ -26,7 +26,7 @@ function Login() {
       data = await response.json();
     }
 
-   console.log("Backend response:", data);
+   
 
       if (response.ok && data.message === 'Login successful') {
         localStorage.setItem('isLoggedIn', 'true');
