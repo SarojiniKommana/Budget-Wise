@@ -12,8 +12,7 @@ import Transactions from "./pages/Transactions.jsx";
 import Analytics from "./pages/Analytics.jsx";
 import Settings from "./pages/Settings.jsx";
 import ChangePassword from "./pages/ChangePassword";
-
-
+import AiInsights from "./pages/AiInsights.jsx";
 
 function App() {
   
@@ -37,7 +36,7 @@ function App() {
 
       <Route path="settings" element={<Settings />} />
       <Route path="analytics" element={<Analytics />} />
-      
+      <Route path="ai-insights" element={<AiInsights />} />
       
       {/* sidebar pages */}
       

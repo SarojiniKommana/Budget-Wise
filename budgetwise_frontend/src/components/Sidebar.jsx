@@ -7,7 +7,8 @@ import {
   FaChartPie,
   FaCog,
   FaWallet,
-  FaSignOutAlt
+  FaSignOutAlt,
+  FaRobot,
 } from "react-icons/fa";
 
 
@@ -35,6 +36,10 @@ export default function Sidebar() {
 
         <NavLink to="/dashboard/analytics">
           <FaChartPie /> Analytics
+        </NavLink>
+
+        <NavLink to="/dashboard/ai-insights">
+          <FaRobot /> AI Insights
         </NavLink>
 
         <NavLink to="/dashboard/settings">

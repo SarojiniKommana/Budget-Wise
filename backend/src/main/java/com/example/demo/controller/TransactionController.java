@@ -11,7 +11,9 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 
-
+import com.example.demo.service.AiInsightService;
+import java.util.stream.Collectors;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.time.LocalDate;
@@ -23,10 +25,12 @@ public class TransactionController {
 
     private final TransactionRepository transactionRepo;
     private final UserRepository userRepo;
+    private final AiInsightService aiService;
 
-    public TransactionController(TransactionRepository transactionRepo, UserRepository userRepo) {
+    public TransactionController(TransactionRepository transactionRepo, UserRepository userRepo, AiInsightService aiService) {
         this.transactionRepo = transactionRepo;
         this.userRepo = userRepo;
+        this.aiService = aiService;
     }
 
     // Save transaction (POST body includes email)
@@ -158,5 +162,6 @@ public void delete(@PathVariable Long id) {
     }
     transactionRepo.deleteById(id);
 }
+
 
 }

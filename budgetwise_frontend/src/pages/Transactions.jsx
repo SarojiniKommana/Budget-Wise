@@ -16,7 +16,7 @@ export default function Transactions() {
 
   useEffect(() => {
   const email = localStorage.getItem("userEmail");
- console.log("Email from localStorage:", email);
+
   fetch(`http://localhost:8080/api/transactions?email=${email}`)
     .then(res => {
       if (!res.ok) {
