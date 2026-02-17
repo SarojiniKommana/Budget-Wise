@@ -487,3 +487,34 @@ tbody tr:hover {
 .recent-table tbody tr:hover {
   background: #f9fafc;
 }
+/* AiInsights css */
+.ai-insights-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.advisor-box {
+  background: #eef2ff;
+  padding: 15px;
+  border-left: 5px solid #4f46e5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.insights-list li,
+.tips-list li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
