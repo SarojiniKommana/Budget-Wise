@@ -127,10 +127,14 @@ mvn spring-boot:run
 ### 📈 Analytics
 ![Analytics](screenshots/Analytics.png)
 
+### 🤖 AI Insights
+![AI Insights](screenshots/AiInsights.png)
+
 ### ⚙️ Settings Page
 ![Settings](screenshots/Settings.png)
 
 
 ---
+
 
 
