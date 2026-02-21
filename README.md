@@ -25,10 +25,18 @@ Built using **React.js**, **Spring Boot**, and **MySQL**, BudgetWise provides se
 
 ---
 
-### 📈 Analytics & Insights
+### 📈 Analytics 
 - 📊 Bar chart for **Category vs Expenses**  
 - 🥧 Pie chart for **Income vs Expenses**  
 - Real-time financial visualization  
+
+---
+
+### 🤖 AI Insights
+Integrated with Google Gemini API
+- 📊 Detects spending patterns
+- 💡 Suggests savings tips
+- ⚠️ Flags overspending
 
 ---
 
@@ -63,7 +71,7 @@ Built using **React.js**, **Spring Boot**, and **MySQL**, BudgetWise provides se
 | ⚙️ Backend | Spring Boot (Java) | REST API Development |
 | 🗄 Database | MySQL | Persistent Data Storage |
 | 📊 Charts | Recharts | Bar & Pie charts |
-| 💅 Styling | CSS / Tailwind CSS | UI Design |
+| 💅 Styling | CSS  | UI Design |
 
 ---
 
@@ -109,7 +117,6 @@ mvn spring-boot:run
 
 ---
 
-## 📷 Screenshots
 ## 📸 Screenshots
 
 ### 🏠 Landing Page
@@ -135,6 +142,7 @@ mvn spring-boot:run
 
 
 ---
+
 
 
 
