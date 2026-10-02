@@ -12,7 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.HashMap;
 import java.util.Map;
-import com.example.demo.controller.dto.VerifyRequest;
+import com.example.demo.dto.VerifyRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @RestController

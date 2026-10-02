@@ -1,86 +1,78 @@
-import { useState, useEffect } from "react";
+import React from "react";
+import { useState } from "react";
+
+const CATEGORIES = [
+  "Food",
+  "Groceries",
+  "Rent",
+  "Utilities",
+  "Travel",
+  "Health",
+  "Entertainment",
+  "Shopping",
+  "Other",
+];
 
 export default function ExpenseModal({ transaction, onClose, onSave }) {
   const today = new Date().toISOString().split("T")[0];
+  const startingIsCustom = transaction && !CATEGORIES.includes(transaction.title);
 
-  const [category, setCategory] = useState("Food");
-  const [customCategory, setCustomCategory] = useState("");
-  const [amount, setAmount] = useState("");
-  const [isReserved, setIsReserved] = useState(false);
-  const [date, setDate] = useState(today);
-
-  // ✅ prefill for edit
-  useEffect(() => {
-    if (transaction) {
-      setCategory(transaction.title);
-      setAmount(transaction.amount);
-      setDate(transaction.date);
-      setIsReserved(transaction.isReserved);
-    }
-  }, [transaction]);
+  const [category, setCategory] = useState(
+    startingIsCustom ? "Other" : transaction?.title || "Food"
+  );
+  const [customCategory, setCustomCategory] = useState(startingIsCustom ? transaction.title : "");
+  const [amount, setAmount] = useState(transaction?.amount ?? "");
+  const [isReserved, setIsReserved] = useState(transaction?.isReserved ?? false);
+  const [date, setDate] = useState(transaction?.date || today);
+  const [error, setError] = useState("");
+  const [saving, setSaving] = useState(false);
 
   const handleSave = async () => {
-  const amt = Number(amount);
-
-  if (!amt || amt <= 0) {
-    alert("Amount must be positive");
-    return;
-  }
-
-  const email = localStorage.getItem("userEmail");
-
-  try {
-    const url = transaction
-      ? `http://localhost:8080/api/transactions/${transaction.id}` // edit
-      : "http://localhost:8080/api/transactions"; // add
-
-    const method = transaction ? "PUT" : "POST";
-
-    const res = await fetch(url, {
-      method,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        type: "Expense",
-        title: category === "Other" ? customCategory : category,
-        amount: amt,
-        date,
-        isReserved
-      })
-    });
-
-    const msg = await res.text();
-
-    if (!res.ok) {
-      alert(msg.message || "Failed to save expense"); // backend validation message
+    const amt = Number(amount);
+    if (!amt || amt <= 0) {
+      setError("Amount must be a positive number.");
+      return;
+    }
+    const finalCategory = category === "Other" ? customCategory.trim() : category;
+    if (!finalCategory) {
+      setError("Please enter a category.");
       return;
     }
 
-    const savedTransaction = JSON.parse(msg);
-
-    onSave(savedTransaction); // update table
-    onClose();
-
-  } catch (err) {
-    alert("Error saving expense");
-  }
-};
-
+    setSaving(true);
+    setError("");
+    try {
+      // Bug fix: this used to call fetch() directly, bypassing the shared
+      // save function that IncomeModal used — two different code paths
+      // doing the same job. Now both modals save the same way.
+      await onSave({
+        id: transaction?.id,
+        email: localStorage.getItem("userEmail"),
+        type: "Expense",
+        title: finalCategory,
+        amount: amt,
+        date,
+        isReserved,
+      });
+      onClose();
+    } catch (err) {
+      setError(err.message || "Failed to save expense.");
+    } finally {
+      setSaving(false);
+    }
+  };
 
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <h3>{transaction ? "Edit Expense" : "Add Expense"}</h3>
+        <h3>{transaction ? "Edit expense" : "Add expense"}</h3>
 
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option>Food</option>
-          <option>Travel</option>
-          <option>Bills</option>
-          <option>Shopping</option>
-          <option value="Other">Other</option>
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          {CATEGORIES.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
         </select>
 
         {category === "Other" && (
@@ -93,30 +85,32 @@ export default function ExpenseModal({ transaction, onClose, onSave }) {
 
         <input
           type="number"
+          min="0"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Amount"
         />
 
-        <input
-          type="date"
-          max={today}
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
+        <input type="date" max={today} value={date} onChange={(e) => setDate(e.target.value)} />
 
-        <label>
+        <label className="reserved-checkbox">
           <input
             type="checkbox"
             checked={isReserved}
             onChange={(e) => setIsReserved(e.target.checked)}
           />
-          Mark as Reserved
+          Mark as reserved
         </label>
 
+        {error && <p className="modal-error">{error}</p>}
+
         <div className="modal-actions">
-          <button onClick={onClose}>Cancel</button>
-          <button onClick={handleSave}>Save</button>
+          <button onClick={onClose} disabled={saving}>
+            Cancel
+          </button>
+          <button onClick={handleSave} disabled={saving}>
+            {saving ? "Saving..." : "Save"}
+          </button>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 package com.example.demo.model;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -30,6 +30,7 @@ public class User {
 
     public void setEmail(String email) { this.email = email; }
 
+    @JsonIgnore
     public String getPassword() { return password; }
 
     public void setPassword(String password) { this.password = password; }

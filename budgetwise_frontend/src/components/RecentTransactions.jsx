@@ -1,7 +1,9 @@
+import React from "react";
 import "../pages/transactions.css";
-export default function RecentTransactions({ transactions }) {
+import { formatCurrency } from "../utils/format";
 
-  const latest = transactions
+export default function RecentTransactions({ transactions }) {
+  const latest = [...transactions]
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 5);
 
@@ -9,7 +11,7 @@ export default function RecentTransactions({ transactions }) {
     <div className="recent-box">
       <div className="recent-header">
         <h3>Recent Transactions</h3>
-        <a href="/dashboard/transactions">View All →</a>
+        <a href="/dashboard/transactions">View all</a>
       </div>
 
       <table className="recent-table">
@@ -24,17 +26,25 @@ export default function RecentTransactions({ transactions }) {
         </thead>
 
         <tbody>
-          {latest.map((t, i) => (
-            <tr key={i}>
-              <td>{t.date}</td>
-              <td>{t.category || t.title}</td>
-              <td className={t.type}>{t.type}</td>
-              <td className={t.type}>
-                {t.type === "income" ? "+ " : "- "}₹{t.amount}
-              </td>
-              <td>{t.isReserved ? "Yes" : "No"}</td>
-            </tr>
-          ))}
+          {latest.map((t, i) => {
+            // Bug fix: t.type is "Income"/"Expense" (capitalized) but this
+            // used to compare against lowercase "income", which is never
+            // true — every row showed a "-" and the expense color, even
+            // for income.
+            const isIncome = t.type === "Income";
+            return (
+              <tr key={t.id ?? i}>
+                <td>{t.date}</td>
+                <td>{t.category || t.title}</td>
+                <td className={isIncome ? "income" : "expense"}>{t.type}</td>
+                <td className={isIncome ? "income" : "expense"}>
+                  {isIncome ? "+ " : "- "}
+                  {formatCurrency(t.amount)}
+                </td>
+                <td>{t.isReserved ? "Yes" : "No"}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
